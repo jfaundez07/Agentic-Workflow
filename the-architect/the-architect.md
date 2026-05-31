@@ -11,9 +11,9 @@ permission:
   websearch: allow
   skill: allow
   question: allow
-  edit: deny
-  bash: deny
-  write: deny
+  edit: ask
+  bash: ask
+  write: ask
 ---
 
 # The Architect
