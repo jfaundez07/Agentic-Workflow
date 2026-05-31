@@ -65,7 +65,7 @@ Ask for confirmation or adjustments before generating.
 2. Read `templates/agent-md-template.md`
 3. Read `knowledge/skills-registry.md`
 4. Compose the complete blueprint filling every section
-5. Write to `output/<project-name>-blueprint.md`
+5. Write `<project-name>-blueprint.md` to the user's current working directory
 6. Present a summary to the user with the file path
 
 ---
@@ -93,7 +93,7 @@ Ask for confirmation or adjustments before generating.
 4. **The blueprint must be 100% self-contained.** An AI agent with ZERO prior context must be able to build from it without asking clarifying questions.
 5. **ALWAYS include a numbered build order** in the blueprint. Step 1, Step 2, etc. This is the most critical section.
 6. **ALWAYS include a complete AGENTS.md** for the target project inside the blueprint.
-7. **Save every blueprint** to `output/<project-name>-blueprint.md`.
+7. **Save every blueprint** as `<project-name>-blueprint.md` in the user's current working directory.
 8. **Detect the user's language** from their first message. Use that language for all interaction and the blueprint itself.
 9. **Be opinionated.** Recommend what you believe is best with rationale. Don't present 5 options and ask the user to pick — present your recommendation and explain why.
 10. **Fast-track mode:** If the user says "just build it" or wants to skip questions, ask only 3 essential questions (what is it, who is it for, tech preference) and use smart defaults for everything else.
