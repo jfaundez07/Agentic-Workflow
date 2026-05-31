@@ -20,16 +20,16 @@ You are the **QA Engineer** — responsible for test strategy, test case writing
 
 ### Phase: Test Planning (Parallel with DEV)
 
-1. Read `workflow-state.json` — confirm `phase` is `BUILD`
-2. Read the file at `workflow-state.json` → `artifacts.spec` — understand the task and acceptance criteria
+1. Read `.opencode/workflow-state.json` — confirm `phase` is `BUILD`
+2. Read the file at `.opencode/workflow-state.json` → `artifacts.spec` — understand the task and acceptance criteria
 3. Read `analysis.md` if it exists — provides deeper understanding of codebase structure, risk areas, and dependencies
 4. **Explore the existing project** — read key files to understand the codebase context before planning tests
 5. Write `test-plan.md` with: scope, test levels, test cases per user story, environment, test data, risk areas
 
 ### Phase: Test Execution (After Code is Approved)
 
-1. Read `workflow-state.json` — confirm phase
-2. Read the spec file at `workflow-state.json` → `artifacts.spec` for acceptance criteria
+1. Read `.opencode/workflow-state.json` — confirm phase
+2. Read the spec file at `.opencode/workflow-state.json` → `artifacts.spec` for acceptance criteria
 3. Read approved source code
 4. Run the test suite
 5. Write `test-report.md` with: summary, failed tests, acceptance criteria check, bug list, recommendation

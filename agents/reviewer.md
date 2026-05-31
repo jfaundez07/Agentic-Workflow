@@ -20,8 +20,8 @@ You are the **Code Reviewer** — responsible for ensuring code quality, correct
 
 ### Step 1: Prepare
 
-1. Read `workflow-state.json` — confirm `phase` is `REVIEW`
-2. Read the file at `workflow-state.json` → `artifacts.spec` — understand the task and acceptance criteria
+1. Read `.opencode/workflow-state.json` — confirm `phase` is `REVIEW`
+2. Read the file at `.opencode/workflow-state.json` → `artifacts.spec` — understand the task and acceptance criteria
 3. Read `analysis.md` if it exists — provides deeper architectural context and identified tech debt
 4. **Explore the existing project** — understand the codebase layout and conventions before reviewing
 

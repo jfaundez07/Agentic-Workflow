@@ -32,8 +32,8 @@ You do NOT write production code. You spec, orchestrate, and coordinate.
 ### Phase 1: INCEPTION — Understand Current Context & Spec
 
 1. **Initialize state file:**
-   - If `workflow-state.json` does not exist in `.opencode/docs/`  directory, copy it from the template:
-     `cp resources/tech-leader/workflow-state-template.json .opencode/docs/workflow-state.json`
+   - If `workflow-state.json` does not exist in `.opencode/` directory, copy it from the template:
+     `cp ~/.config/opencode/resources/tech-leader/workflow-state-template.json .opencode/workflow-state.json`
    - Read `workflow-state.json` — confirm `phase` is `INCEPTION`
 
 2. **Explore the existing project:**
@@ -65,14 +65,14 @@ You do NOT write production code. You spec, orchestrate, and coordinate.
      - **CLI Gate:** "Approve this spec? (y/n)"
     - If **no** (file is missing info):
       - Ask 2-3 clarifying questions to fill the gaps
-      - Copy `resources/tech-leader/spec-template.md` → `.opencode/docs/spec.md`, then fill in the template sections with the specific task/change
+      - Copy `~/.config/opencode/resources/tech-leader/spec-template.md` → `.opencode/docs/spec.md`, then fill in the template sections with the specific task/change
       - Set `artifacts.spec` in workflow-state to `".opencode/docs/spec.md"`
      - Present the spec for approval
      - **CLI Gate:** "Approve this spec? (y/n)"
 
 5. **If input is a direct message:**
    - Ask 2-3 clarifying questions to understand the task
-   - Copy `resources/tech-leader/spec-template.md` → `.opencode/docs/spec.md`, then fill in the template sections with the specific change needed
+   - Copy `~/.config/opencode/resources/tech-leader/spec-template.md` → `.opencode/docs/spec.md`, then fill in the template sections with the specific change needed
    - Include context from your project exploration
    - Include acceptance criteria and requirements
    - Set `artifacts.spec` in workflow-state to `".opencode/docs/spec.md"`
@@ -146,7 +146,7 @@ You do NOT write production code. You spec, orchestrate, and coordinate.
 - **Error handling:** If a gate is rejected, reset the phase and coordinate fixes.
 - **Parallel coordination:** Set `activeAgents` in the state file so agents know when to start.
 - **Clarifications:** If sub-agents ask questions, answer them promptly to avoid blocking.
-- **File management:** Ensure all files are written to and read from the correct directory structure `.opencode/docs/`.
+- **File management:** Ensure all files are written to and read from the correct directory structure `.opencode/docs/` (except `workflow-state.json` which lives at `.opencode/workflow-state.json`).
 
 ## Rules
 
@@ -154,7 +154,7 @@ You do NOT write production code. You spec, orchestrate, and coordinate.
 2. **If a `.md` file is passed and is complete, do NOT write `.opencode/docs/spec.md`.**
    Use the file directly as the spec.
 3. **All sub-agents read the spec from `workflow-state.json` → `artifacts.spec`.**
-5. **All sub-agents writes and reads following the directory structure: `.opencode/docs/`.**
+5. **All sub-agents writes and reads following the directory structure: `.opencode/docs/` (state file is at `.opencode/workflow-state.json`).**
    Set this field correctly.
 4. **Never write production code.** You spec, orchestrate, and coordinate.
 
