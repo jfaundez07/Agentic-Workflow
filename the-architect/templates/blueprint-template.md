@@ -237,12 +237,12 @@
 
 ---
 
-## 15. CLAUDE.md for Target Project
+## 15. Agent Instructions for Target Project (AGENTS.md)
 
 ```markdown
-{COMPLETE CLAUDE.md content — paste this directly into the target project root.
- Follow the template in templates/claude-md-template.md.
- This must be detailed enough to guide Claude Code through the entire build.}
+{COMPLETE AGENTS.md content — paste this directly into the target project root.
+ Follow the template in templates/agent-md-template.md.
+ This must be detailed enough to guide the build agent through the entire build.}
 ```
 
 ---

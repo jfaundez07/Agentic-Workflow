@@ -1,6 +1,6 @@
-# CLAUDE.md Template for Target Projects
+# AGENTS.md Template for Target Projects
 
-Use this template when generating Section 15 of the blueprint. Fill in every section. The generated CLAUDE.md must give Claude Code complete context to build autonomously.
+Use this template when generating Section 15 of the blueprint. Fill in every section. The generated AGENTS.md must give the build agent complete context to build autonomously.
 
 ---
 
@@ -81,7 +81,7 @@ Use this template when generating Section 15 of the blueprint. Fill in every sec
 
 ---
 
-## Guidelines for Generating CLAUDE.md
+## Guidelines for Generating AGENTS.md
 
 - Keep it under 120 lines. Dense, scannable, no fluff.
 - Commands section first — the builder needs to know how to run things immediately.

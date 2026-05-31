@@ -1,6 +1,6 @@
 # Skills Registry
 
-Maps available Claude Code skills to blueprint sections. Use this during Phase 4 (Generate) to recommend the right skills for the build phase.
+Maps available agent skills to blueprint sections. Use this during Phase 4 (Generate) to recommend the right skills for the build phase.
 
 ## Skills for Blueprint Recommendations
 
@@ -31,11 +31,13 @@ Maps available Claude Code skills to blueprint sections. Use this during Phase 4
 ## How to Include in Blueprint
 
 In Section 14 (Skills to Use During Build), list each relevant skill with:
+
 1. **Skill name** — the slash command
 2. **When to use** — which build step (reference the build order)
 3. **Why** — what it helps accomplish
 
 Example:
+
 ```markdown
 | Skill | When to Use | Why |
 |-------|-------------|-----|
