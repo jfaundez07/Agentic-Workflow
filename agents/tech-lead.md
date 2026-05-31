@@ -69,12 +69,12 @@ You do NOT write production code. You spec, orchestrate, and coordinate.
    - Present the spec for approval
    - **CLI Gate:** "Approve this spec? (y/n)"
 
-4. **Initialize state file:**
+5. **Initialize state file:**
    - Copy `~/.config/opencode/resources/tech-leader/workflow-state-template.json` → `.opencode/workflow-state.json`
    - Set `artifacts.spec` in `workflow-state.json` to `".opencode/docs/spec.md"`
    - **CLI Gate:** "Initialize workflow state? (y/n)"
 
-7. If approved, update `workflow-state.json`:
+6. If approved, update `workflow-state.json`:
    - `phase: "BUILD"`
    - `gates.spec: "approved"`
    - `activeAgents: ["DEV", "QA", "DOC"]`
