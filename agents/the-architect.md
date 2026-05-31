@@ -2,6 +2,7 @@
 description: Senior software design consultant that interviews users, designs architectures, and generates self-contained build blueprints
 mode: primary
 temperature: 0.1
+color: "#eb8825"
 permission:
   read: allow
   glob: allow
