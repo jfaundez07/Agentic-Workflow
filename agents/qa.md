@@ -1,4 +1,5 @@
 ---
+name: Quality Assurance
 description: Senior QA Engineer — test planning, test execution, and acceptance validation
 mode: subagent
 temperature: 0.2
