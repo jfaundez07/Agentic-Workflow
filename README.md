@@ -1,13 +1,36 @@
 <p align="center">
   <img alt="OpenCode" src="https://img.shields.io/badge/OpenCode-agentic--workflow-6C47FF?style=flat-square">
   <img alt="Status" src="https://img.shields.io/badge/status-active-success?style=flat-square">
-  <img alt="License" src="https://img.shields.io/badge/license-MIT-blue?style=flat-square">
 </p>
 
 <h1 align="center">Agentic Workflow Setup</h1>
 <p align="center"><strong>Personal agentic workflow for building software with OpenCode — a config/doc repo of agent definitions and architecture blueprints.</strong></p>
 
 This repository defines a team of AI agents that collaborate to plan, build, verify, review, and commit software projects. It is a **configuration and documentation repository** — no application code, no build scripts, no test runners. Everything is markdown with YAML frontmatter that OpenCode loads as executable agent definitions.
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Architecture](#architecture)
+- [Directory Structure](#directory-structure)
+- [The Architect System](#the-architect-system)
+- [Usage](#usage)
+- [Key Details](#key-details)
+- [Relationship to AGENTS.md](#relationship-to-agentsmd)
+
+---
+
+## Installation
+
+Clone this repository and copy the agent definitions and resources to your OpenCode config directory:
+
+```bash
+git clone https://github.com/<your-username>/agentic-workflow.git
+cp -r agentic-workflow/agents ~/.config/opencode/agents
+cp -r agentic-workflow/resources ~/.config/opencode/resources
+```
+
+> **Note:** Paths in agent instructions reference `~/.config/opencode/...` at runtime, so copying these directories to that location ensures everything resolves correctly.
 
 ---
 
@@ -87,26 +110,6 @@ Using this workflow requires [OpenCode](https://opencode.ai) with this repo as t
 4. **Review output** — The final deliverable depends on the scope: a plan document, implementation files, test results, a review report, or committed changes.
 
 For new projects from scratch, use **The Architect** instead — it generates a complete blueprint that the Tech Lead can then implement.
-
----
-
-## Commit Convention
-
-Commits follow [Conventional Commits](https://www.conventionalcommits.org/). Every commit message uses a structured format with a type and an optional scope:
-
-```
-<type>(<scope>): <description>
-```
-
-**Types**: `feat`, `fix`, `refactor`, `chore`, `docs`, `test`, `style`  
-**Scopes**: agent names or component areas (e.g., `qa`, `agents`, `the-architect`, `developer`)
-
-Examples from the repository history:
-
-- `feat(qa): add validation for acceptance criteria`
-- `refactor(agents): restructure permission blocks`
-- `docs(the-architect): expand 4-phase workflow docs`
-- `feat(developer): implement build-order execution`
 
 ---
 
