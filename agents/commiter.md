@@ -1,5 +1,5 @@
 ---
-name: commiter
+name: Commiter
 description: An expert agent that analyzes workspace diffs and generates highly explainable, standard-compliant Conventional Commit messages.
 mode: subagent
 temperature: 0.2

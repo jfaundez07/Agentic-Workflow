@@ -1,4 +1,5 @@
 ---
+name: Analyst
 description: Comprehensive technical analysis of any project type, generating detailed documentation in .opencode/analysis.md with deep technical insights, architecture patterns, security analysis, performance considerations, and actionable recommendations.
 mode: subagent
 temperature: 0.1
