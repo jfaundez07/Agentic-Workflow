@@ -105,7 +105,6 @@ Each step feeds its output as input to the next. The pipeline stops early if any
 | `resources/the-architect/knowledge/archetypes/` | 6 project-type templates: saas, marketing, mobile, api, internal-tool, content |
 | `resources/the-architect/knowledge/building-blocks/` | Decision guides: auth, db, deployment, api design, frontend, testing, styling, state |
 | `resources/the-architect/templates/` | Blueprint output templates and AGENTS.md generation templates |
-| `.opencode/docs/` | Runtime artifacts — `spec.md` created by Tech Lead during the plan phase |
 
 ---
 
