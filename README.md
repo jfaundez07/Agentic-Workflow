@@ -42,7 +42,7 @@ The workflow is organized into two categories of agents: **primary agents** (run
 
 | Agent | File | Role |
 |-------|------|------|
-| **Tech Lead** | `agents/tech-lead.md` | Orchestrator — plans specs, delegates to sub-agents, verifies output. Dispatches in scope-based sequences. |
+| **Tech Lead** | `agents/tech-lead.md` | Orchestrator — communicates with user, delegates to sub-agents, verifies output. Dispatches in scope-based sequences. |
 | **The Architect** | `agents/the-architect.md` | System designer — generates buildable blueprints from scratch. Does NOT write code. |
 
 ### Sub-Agents
@@ -50,6 +50,7 @@ The workflow is organized into two categories of agents: **primary agents** (run
 | Agent | File | Responsibility |
 |-------|------|----------------|
 | **Analyst** | `agents/analyst.md` | Analyzes requirements and produces structured analysis. |
+| **Designer** | `agents/designer.md` | Creates detailed implementation plans (requirements, acceptance criteria, build order). |
 | **Developer** | `agents/developer.md` | Implements code per specification — writes source files, tests, configurations. |
 | **QA** | `agents/qa.md` | Validates implementation against acceptance criteria, runs tests, reports failures. |
 | **Reviewer** | `agents/reviewer.md` | Reviews code for correctness, style, security, and adherence to spec. |
@@ -61,11 +62,11 @@ The Tech Lead orchestrates sub-agents in sequential scope-based pipelines. Five 
 
 | Scope | Pipeline |
 |-------|----------|
-| `plan` | Tech Lead alone — produces `spec.md` at `.opencode/docs/spec.md` |
-| `plan+dev` | Plan → Developer |
-| `plan+dev+qa` | Plan → Developer → QA |
-| `plan+dev+qa+review` | Plan → Developer → QA → Reviewer |
-| **full pipeline** | Plan → Developer → QA → Reviewer → Commiter |
+| `plan` | Designer — produces `plan.md` at `.opencode/docs/plan.md` |
+| `plan+dev` | Designer → Developer |
+| `plan+dev+qa` | Designer → Developer → QA |
+| `plan+dev+qa+review` | Designer → Developer → QA → Reviewer |
+| **full pipeline** | Designer → Developer → QA → Reviewer → Commiter |
 
 Each step feeds its output as input to the next. The pipeline stops early if any stage fails its verification.
 
@@ -76,9 +77,10 @@ Each step feeds its output as input to the next. The pipeline stops early if any
 ```
 .
 ├── README.md                    # This file — user-facing introduction
-├── agents/                      # Agent definitions (7 agents)
+├── agents/                      # Agent definitions (8 agents)
 │   ├── analyst.md
 │   ├── commiter.md
+│   ├── designer.md
 │   ├── developer.md
 │   ├── qa.md
 │   ├── reviewer.md
@@ -99,7 +101,7 @@ Each step feeds its output as input to the next. The pipeline stops early if any
 
 | Path | Purpose |
 |------|---------|
-| `agents/` | Agent definitions — 7 markdown files with YAML frontmatter (analyst, developer, qa, reviewer, commiter, tech-lead, the-architect) |
+| `agents/` | Agent definitions — 8 markdown files with YAML frontmatter (analyst, designer, developer, qa, reviewer, commiter, tech-lead, the-architect) |
 | `docs/` | Documentation — notably `docs/the-architect.md` for the blueprint system |
 | `resources/the-architect/` | Knowledge base for The Architect: archetypes, building blocks, templates, and discovery questions |
 | `resources/the-architect/knowledge/archetypes/` | 6 project-type templates: saas, marketing, mobile, api, internal-tool, content |
@@ -140,9 +142,9 @@ For new projects from scratch, use **The Architect** instead — it generates a 
 
 1. **Path resolution for The Architect** — Knowledge files are referenced as `~/.config/opencode/resources/the-architect/...` in agent instructions. These resolve at runtime from the user's home config, not the repo. Do not rewrite these to local paths.
 2. **`.gitignore` exclusions** — `AGENTS.md` and `.opencode/` are gitignored as generated artifacts. They will not be committed if created or modified.
-3. **Agent mode matters** — `mode: primary` agents (tech-lead, the-architect) run standalone. `mode: subagent` agents (developer, qa, reviewer, commiter, analyst) are dispatched by primaries via the `task` tool.
+3. **Agent mode matters** — `mode: primary` agents (tech-lead, the-architect) run standalone. `mode: subagent` agents (designer, developer, qa, reviewer, commiter, analyst) are dispatched by primaries via the `task` tool.
 4. **No application code** — Every file in this repo is documentation or configuration. There is no `package.json`, `node_modules`, or dev server. All agent definitions are markdown with YAML frontmatter that OpenCode parses at load time.
-5. **Spec-driven pipeline** — The Tech Lead creates `spec.md` at `.opencode/docs/spec.md` during the plan phase. Sub-agents should always read this file before starting their work.
+5. **Plan-driven pipeline** — The Tech Lead dispatches the **Designer** subagent to create `plan.md` at `.opencode/docs/plan.md` during the plan phase. Sub-agents should always read this file before starting their work.
 
 ---
 

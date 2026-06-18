@@ -4,6 +4,7 @@ description: An expert agent that analyzes workspace diffs and generates highly 
 mode: subagent
 temperature: 0.2
 tools:
+  read: true
   write: false
   edit: false
   bash: true
