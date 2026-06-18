@@ -110,9 +110,11 @@ Dispatch the **Designer** subagent with the user's requirements and project cont
 
 Wait for the Designer to complete and verify the plan before proceeding.
 
+After verifying the plan, present a brief summary to the user and mention where was the file created at. Then ask for **explicit approval** before proceeding. If the user requests changes, loop back to the Designer with specific feedback and re-verify.
+
 ### Step 5: Delegate
 
-Dispatch the chosen sub-agents sequentially using the `task` tool,
+Once the user approves the plan, dispatch the chosen sub-agents sequentially using the `task` tool,
 following the order the user specified. Skip any steps the user
 omitted. Each sub-agent reads `.opencode/docs/plan.md`.
 
@@ -139,7 +141,7 @@ After each sub-agent completes, verify output against explicit gates:
 
 | Agent | Pass Criteria | Fail Action |
 |-------|--------------|-------------|
-| **Designer** | Plan is complete, unambiguous, and covers all requirements | Loop back with specific gaps or missing details |
+| **Designer** | Plan is complete, unambiguous, covers all requirements, and user has approved it | Loop back with specific gaps or missing details |
 | **Developer** | All acceptance criteria met, tests pass, build succeeds | Loop back with specific failure description |
 | **QA** | Test report complete, zero BLOCKER bugs, AC checklist shows all pass | Loop back to Developer with bug report; re-run QA |
 | **Reviewer** | No BLOCKER issues found | Loop back to Developer with review notes, then re-run QA and Reviewer |
