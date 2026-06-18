@@ -73,6 +73,30 @@ Each step feeds its output as input to the next. The pipeline stops early if any
 
 ## Directory Structure
 
+```
+.
+├── README.md                    # This file — user-facing introduction
+├── agents/                      # Agent definitions (7 agents)
+│   ├── analyst.md
+│   ├── commiter.md
+│   ├── developer.md
+│   ├── qa.md
+│   ├── reviewer.md
+│   ├── tech-lead.md
+│   └── the-architect.md
+├── docs/                        # Extended documentation
+│   └── the-architect.md
+└── resources/                   # Knowledge base for The Architect
+    └── the-architect/
+        ├── knowledge/
+        │   ├── archetypes/      # 6 project-type templates
+        │   ├── building-blocks/ # 8 decision-guide resources
+        │   └── skills-registry.md
+        ├── questions/           # Discovery phase questionnaires
+        └── templates/           # Blueprint & AGENTS.md templates
+
+```
+
 | Path | Purpose |
 |------|---------|
 | `agents/` | Agent definitions — 7 markdown files with YAML frontmatter (analyst, developer, qa, reviewer, commiter, tech-lead, the-architect) |
