@@ -25,7 +25,7 @@ This repository defines a team of AI agents that collaborate to plan, build, ver
 Clone this repository and copy the agent definitions and resources to your OpenCode config directory:
 
 ```bash
-git clone https://github.com/<your-username>/agentic-workflow.git
+git clone https://github.com/jfaundez07/agentic-workflow.git
 cp -r agentic-workflow/agents ~/.config/opencode/agents
 cp -r agentic-workflow/resources ~/.config/opencode/resources
 ```
