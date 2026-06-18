@@ -39,6 +39,7 @@ Send this context query to yourself to ensure you understand the project:
 Then explore the project — read key files and understand the codebase before any implementation:
 
 - Read `.opencode/docs/analysis.md` if it exists — provides a deep technical overview of architecture, tech stack, dependencies, and conventions
+- Read `.opencode/docs/test-plan.md` if it exists — provides test cases to implement
 - Look at `package.json` (or equivalent) for dependencies and scripts
 - Inspect the directory structure and naming conventions
 - Find relevant existing files the spec mentions
@@ -54,6 +55,7 @@ Execute the mandatory context retrieval above. Do NOT skip exploration.
 
 - If a **Build Order** section exists, execute it step by step. Do not reorder steps.
 - If no Build Order exists, implement from the requirements and acceptance criteria, applying your best judgment on ordering.
+- If `.opencode/docs/test-plan.md` exists, implement the test cases defined in it after implementing the feature code.
 - One component per file. Max 300 lines per file.
 - Use path aliases and conventions as defined in the specs.
 - Follow existing project patterns — match the code style of neighboring files (import style, error handling, naming conventions, test patterns).

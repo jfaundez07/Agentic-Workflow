@@ -31,7 +31,7 @@ a step fails.
 |---|---|---|---|---|
 | **Designer** | Creates the implementation plan — requirements, acceptance criteria, build order | User request + project context | `.opencode/docs/plan.md` | No code; plan must be complete and unambiguous |
 | **Developer** | Implements the plan — writes all source code | `.opencode/docs/plan.md` | Working implementation | No questions; max 300 lines/file; must run tests before done |
-| **QA** | Writes and runs tests, validates acceptance criteria | `.opencode/docs/plan.md` + code | Test report with bugs and AC checklist | Acceptance criteria are law; test risk, not coverage; regression first |
+| **QA** | Creates the test plan — test scope, cases, risk areas, acceptance criteria mapping | `.opencode/docs/plan.md` + code | `.opencode/docs/test-plan.md` | Planning only; no test code; must cover every AC |
 | **Reviewer** | Code review gate — approves or rejects with issues | `.opencode/docs/plan.md` + code | Review with BLOCKER/WARNING/NIT | Read-only (no edits); BLOCKER = reject, WARNING/NIT = approve with notes |
 | **Commiter** | Generates conventional commit and provide it to the user but do not execute it | Git diff | Conventional commit (executed) | Uses `conventional-commit` skill; provides alternative commit options |
 
@@ -60,7 +60,7 @@ This ensures sub-agents never lose context of what was done before them.
 |-------|-------------------------|
 | **Designer** | User request, project context, analysis.md path |
 | **Developer** | Plan path, build order, chosen steps, existing analysis.md path |
-| **QA** | Plan path, changed files list, known risk areas from analysis.md |
+| **QA** | Plan path, test_plan_path, changed files list, known risk areas from analysis.md |
 | **Reviewer** | Plan path, changed files, QA report (if available) |
 | **Commiter** | Full context that commit is the final step, plan path for reference |
 
@@ -84,7 +84,7 @@ and let them compose their own workflow:
 - **Designer** — Explores the project and generates a detailed plan
   with requirements, build order, and acceptance criteria.
 - **Developer** — Implements the plan: writes all source code.
-- **QA** — Writes and runs tests, validates acceptance criteria.
+- **QA** — Designs the test strategy and plan.
 - **Reviewer** — Audits code quality with pass/fail gate.
 - **Commiter** — Generates a conventional commit message.
 
@@ -123,9 +123,11 @@ omitted. Each sub-agent reads `.opencode/docs/plan.md`.
 > the build order. Do not ask questions — the plan is complete.
 
 **QA dispatch:**
-> Read `.opencode/docs/plan.md`. Review the implemented code, write tests,
-> run the test suite, and report results. List any acceptance criteria
-> that are not met.
+> Read `.opencode/docs/plan.md`. Design a comprehensive test plan at
+> `.opencode/docs/test-plan.md` covering scope, test levels, test cases
+> per acceptance criterion, risk areas, and edge cases. Be specific
+> enough that the Developer can implement every test from your plan.
+> Do NOT write any test code.
 
 **Reviewer dispatch:**
 > Read `.opencode/docs/plan.md`. Review the implemented code for quality,
@@ -143,7 +145,7 @@ After each sub-agent completes, verify output against explicit gates:
 |-------|--------------|-------------|
 | **Designer** | Plan is complete, unambiguous, covers all requirements, and user has approved it | Loop back with specific gaps or missing details |
 | **Developer** | All acceptance criteria met, tests pass, build succeeds | Loop back with specific failure description |
-| **QA** | Test report complete, zero BLOCKER bugs, AC checklist shows all pass | Loop back to Developer with bug report; re-run QA |
+| **QA** | Test plan complete, covers all acceptance criteria, test cases are specific enough for Developer to implement | Loop back with specific gaps |
 | **Reviewer** | No BLOCKER issues found | Loop back to Developer with review notes, then re-run QA and Reviewer |
 | **Commiter** | Commit executed successfully, git log confirms | Present commit message to user for manual execution |
 
