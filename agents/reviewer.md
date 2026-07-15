@@ -1,5 +1,5 @@
 ---
-name: Code Reviewer
+name: Reviewer
 description: Senior Code Reviewer — reviews code quality, correctness, security, and style compliance
 mode: subagent
 temperature: 0.1
