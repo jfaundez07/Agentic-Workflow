@@ -64,7 +64,7 @@ This ensures sub-agents never lose context of what was done before them.
 
 ### Step 1: Intake
 
-The user may start with a specific promtp or provide you with a file to read. Your first task is to understand what they want to build or work on. 
+The user may start with a specific promtp or provide you with a file to read. Your first task is to understand what they want to build or work on.
 Ask the user clarifying questions to ensure you understand the requirements, constraints, and goals. Avoid asking more than 3 questions at a time.
 
 ### Step 2: Workflow Composition
@@ -86,13 +86,13 @@ Dispatch the **Planner** subagent with the user's requirements and project conte
 > with requirements, acceptance criteria, build order, and scope. The plan must
 > be complete and unambiguous — downstream agents will not ask questions.
 
-Every plan must be allocated inside the `docs/plans/` folder and follow the naming convention `plan-<id>.md`. The `<id>` is a sequential number starting from 1 that you have to indicate to the planer. If the user has already provided a plan ID, use that one.
+Every plan must be allocated inside the `docs/plans/` folder and follow the naming convention `plan-<id>.md`. The `<id>` is a sequential number starting from 1 that you have to indicate to the planer agent. If the user has already provided a plan ID, use that one.
 
 Wait for the Planner to complete and verify the plan before proceeding.
 
 After verifying the plan, present a brief summary to the user and mention where was the file created at. Then ask for **explicit approval** before proceeding. If the user requests changes, loop back to the Planner with specific feedback and re-verify.
 
-Once the user approves the plan, dispatch sub-agents using the `task` tool.Each sub-agent reads `docs/plans/plan-<id>.md`.
+Once the user approves the plan, dispatch sub-agents using the `task` tool. Make sure that each sub-agent reads `docs/plans/plan-<id>.md`.
 
 **Developer dispatch:**
 > Read `docs/plans/plan-<id>.md` and implement the requirements following
