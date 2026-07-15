@@ -8,15 +8,6 @@ tools:
   write: true
   edit: true
   bash: true
-  todowrite: true
-permission:
-  write: 
-    "*": deny
-    "docs/plans/": allow
-  edit: 
-    "*": deny
-    "docs/plans/": allow
-
 ---
 
 # Planner
