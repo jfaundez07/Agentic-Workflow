@@ -14,11 +14,11 @@ permission:
   write:
     "*": deny
     "docs/plans/": allow
-    "docs/workflow-log.md": allow
+    "docs/workflow-log.json": allow
   edit:
     "*": deny
     "docs/plans/": allow
-    "docs/workflow-log.md": allow
+    "docs/workflow-log.json": allow
 ---
 
 # Tech Lead
@@ -40,7 +40,7 @@ You are responsible for coordinating handoffs, verifying outputs, and looping ba
 ## Communication Protocol
 
 Log and pass structured context between sub-agents at each handoff.
-You write down the logs of the orchestration in `docs/workflow-log.md` for traceability. If the file does not exist, create it. Each log entry must include a timestamp, the sub-agent that completed, the plan path, chosen steps, verification status, and changed files.
+You write down the logs of the orchestration in `docs/workflow-log.json` for traceability. If the file does not exist, create it. Each log entry must include a timestamp, the sub-agent that completed, the plan path, chosen steps, verification status, and changed files.
 Each sub-agent receives a JSON summary of the previous step, including plan path, chosen steps, verification status, and changed files.
 **After each sub-agent completes**, you **write down** the logs and send the next agent a summary, following this format:
 
