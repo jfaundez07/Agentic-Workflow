@@ -125,11 +125,16 @@ Once the user approves the plan, dispatch sub-agents using the `task` tool. Make
 
 After each sub-agent completes, verify output against explicit gates:
 
+The order below is a reference workflow, not a constraint. Decide whether to run agents
+sequentially or in parallel depending on the task. In parallel mode, failures only affect
+the failing agent; in sequential mode, determine which downstream agents need re-running.
+
 | Agent | Pass Criteria | Fail Action |
 |-------|--------------|-------------|
 | **Planner** | Plan is complete, unambiguous, covers all requirements, and user has approved it | Loop back with specific gaps or missing details |
 | **Developer** | All acceptance criteria met, tests pass, build succeeds | Loop back with specific failure description |
 | **Tester** | Test plan and implementation complete, covers all acceptance criteria, tests pass | Loop back with specific gaps |
+| **Reviewer** | No BLOCKER issues found | Loop back to Developer with review notes |
 | **Code Documenter** | All new/modified public symbols documented, conventions followed, no stale docs | Loop back with specific gaps |
 
 **Escalation rule:** If the same sub-agent fails twice consecutively, do NOT loop again. Pause execution, present the full failure summary to the user, and ask how they want to proceed.
