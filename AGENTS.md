@@ -12,7 +12,7 @@ OpenCode agent definitions and architecture blueprint system (The Architect). **
 
 ## Tech Lead Pipeline
 
-Sub-agents run sequentially: Planner → Developer → Tester → Reviewer. Planner creates `docs/plans/plan-<id>.md` (sequential IDs from 1); subsequent agents read it. Analyst runs independently to produce `docs/analysis.md`. Commiter is a fallback, not a pipeline step.
+Planner creates `docs/plans/plan-<id>.md` (sequential IDs from 1); subsequent agents read it. Analyst runs independently to produce `docs/analysis.md`. Commiter is a fallback, not a pipeline step.
 
 The Tech Lead logs every handoff to `docs/workflow-log.md` and passes structured JSON context between sub-agents. Always dispatch sub-agents via the `task` tool.
 
